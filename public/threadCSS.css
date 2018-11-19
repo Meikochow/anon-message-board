@@ -1,0 +1,173 @@
+
+body {
+padding: 10px;
+margin:5px;
+text-align:center;
+background:rgba(51, 153, 255,0.07);
+}
+.menuLink{
+border:none;
+box-shadow:0px 0px 10px mediumSeaGreen;
+text-decoration:none;
+display:inline-block;
+padding:5px 10px 5px 10px;
+color:black;
+background:rgba(51, 204, 51,0.2);
+}
+.menuLink:hover{
+box-shadow:0px 0px 30px mediumSeaGreen;  
+}
+.thread {
+padding: 5px;
+margin-bottom: 5px;
+width:94%;
+display:inline-block;
+margin:5px;
+}
+.main{
+box-shadow: 0px 0px 10px rgb(254, 215, 176);
+background:rgba(254, 215, 176,0.5);
+display:block;
+border-radius:5px;
+padding:20px 0px 25px 0px;
+margin:10px auto 20px auto;
+}
+.nameAndDate{
+display:inline-block;
+}
+.rep-remThread{
+display:inline-block;
+margin:5px;
+}
+.threadInitText{
+background:white;
+border-radius:5px;
+width:auto;
+max-width:90%;
+min-height:40px;
+height:auto;
+margin:5px auto 5px auto;
+padding:5px;
+font-size:35px;
+}
+
+.newReply {
+box-shadow: 0px 0px 20px rgb(51, 204, 51);
+background:rgba(51, 204, 51,0.2);
+padding:15px 5px 15px 5px;
+display:block;
+margin:10px auto 10px auto;
+width:auto;
+max-width:600px;
+}
+.newReply textarea{
+width:auto;
+max-width:90%;
+border-radius:5px;
+}
+.newReply input[type="text"]{
+border-radius:5px 0px 0px 5px;
+box-shadow: 0px 0px 10px black;
+border:none;
+padding:5px;
+margin-right:-4px;
+}
+.newReply input[type="submit"]{
+border-radius:0px 5px 5px 0px;
+box-shadow: 0px 0px 3px black;
+border:none;
+padding:5px;
+}
+.newReply input[type="submit"]:hover{
+box-shadow: 0px 0px 10px black;
+}
+.replies{
+font-weight:bold;
+}
+.reply {
+margin: 5px 0px 5px 0px; 
+padding: 5px 15px 5px 15px;
+background:rgba(51, 204, 51,0.2);
+border-radius:10px;
+text-align:left;
+width:auto;
+max-width:98%;
+font-size:16px;
+}
+.reply form{
+display:inline-block;
+}
+.repReply{
+display:inline-block;
+margin:5px;
+border-radius:5px;
+border:none;
+box-shadow:0px 0px 1px red;
+background:#fff0ad;
+padding:2px 5px 2px 5px;
+}
+
+.dellPassInput{
+margin:0px 0px 0px 5px;
+border-radius:5px 0px 0px 5px;
+border:none;
+box-shadow:0px 0px 1px red;
+padding:2px 5px 2px 5px;
+}
+.remReply{
+display:inline-block;
+border-radius:0px 5px 5px 0px;
+border:none;
+box-shadow:0px 0px 1px red;
+background:#ffb2ac;
+padding:2px 5px 2px 5px;
+
+}
+.remReply:hover,.repReply:hover,.dellPassInput:focus{
+box-shadow:0px 0px 10px red;
+}
+.replyText{
+background:white;
+padding:10px;
+border-radius:5px;
+display:inline-block;
+width:auto;
+}
+@media screen and (max-width:350px){
+.newReply input[type="text"]{
+border-radius:5px;
+padding:5px;
+margin:5px;
+width:180px;
+}
+.newReply input[type="submit"]{
+border-radius:5px;
+padding:5px;
+}
+.reply {
+margin: 5px 0px 5px 0px; 
+padding: 5px 15px 5px 15px;
+background:rgba(51, 204, 51,0.2);
+border-radius:10px;
+text-align:center;
+width:auto;
+max-width:98%;
+font-size:16px;
+}
+.dellPassInput{
+margin:5px;
+border-radius:5px;
+
+}
+.remReply{
+border-radius:5px;
+padding:5px;
+}
+}
+
+
+
+
+
+
+

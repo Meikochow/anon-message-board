@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link rel="icon" href="https://i.postimg.cc/CLrMwKys/10-512.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta+Stencil" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/indexCSS.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+       Welcome to 🏄‍👨‍💻
+      </h1>
+    </header>
+    <h2>Select your board</h2>
+    <div id="result"></div>
+    <h2>Make one yourself</h2>
+    <div id="newBoard">
+        <form action="/api/threads/test" method="post" id="newThread">
+          <input type="text" placeholder="board name / desc" id="board1" name="board" required="" autocomplete="off"><br>
+          <textarea type="text" placeholder="First thread text..." id="textarea1" name="text" required=""></textarea><br>
+          <input type="text" placeholder="🔒password to delete thread" name="delete_password" id="delPass1" autocomplete="off" required=""><br>
+          <input type="submit" value="Submit" class="sbmt1">
+        </form>
+    </div>
+    <hr style="margin:30px;"/>
+            <footer> Made by <a href="https://twitter.com/Victor01684891" target="_blank">Victor Cojocaru </a> with  🐋and  🍎</footer> 
+    <!-- Your web-app is https, so your scripts need to be too -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('#newThread').submit(function(){
+          var board = $('#board1').val();
+          $(this).attr('action', "/api/threads/" + board);
+        });
+      })
+    </script>
+      <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+        <script src="/public/boards.js"></script>    
+
+  </body>
+</html>

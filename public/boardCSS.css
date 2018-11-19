@@ -1,0 +1,185 @@
+
+body {
+padding: 10px;
+margin:5px;
+text-align:center;
+background:rgba(51, 153, 255,0.12);
+min-width:200px;
+}
+.menuLink{
+border:none;
+box-shadow:0px 0px 10px mediumSeaGreen;
+text-decoration:none;
+display:inline-block;
+padding:5px 10px 5px 10px;
+color:black;
+background:rgba(51, 204, 51,0.2);
+}
+.menuLink:hover{
+box-shadow:0px 0px 30px mediumSeaGreen;  
+}
+/* ____________________________________threads list__________________________ */
+.thread {
+background:rgba(254, 215, 176,0.3);
+box-shadow: 0px 0px 10px #febf81;
+padding: 0px 5px 5px 5px;
+margin-bottom: 5px;
+width:400px;
+display:inline-block;
+margin:5px;
+height:auto;
+vertical-align:top;
+}
+.fullThreadLink{
+margin:5px;
+display:block;
+font-size:20px;
+}
+.threadTitle{
+overflow:auto;
+height:auto;
+max-height:140px;
+margin:0px -5px 5px -5px;
+background:rgba(255,255,255,0.9);
+padding:5px;
+font-size:40px;
+border-radius:10px;
+}
+.date {
+font-size:14px;
+}
+
+.repThread{
+margin:5px;
+border-radius:5px;
+border:none;
+background:#fff0ad;
+padding:5px;
+box-shadow:0px 0px 5px black;
+}
+.threadDellPass{
+border:none;
+box-shadow:0px 0px 2px red;
+padding:5px;
+}
+.dellThread{
+margin:5px;
+border-radius:5px;
+border:none;
+box-shadow:0px 0px 5px salmon;
+background:#ffb2ac;
+padding:5px;
+}
+.repThread:hover,.threadDellPass:focus,.dellThread:hover{
+box-shadow:0px 0px 15px red;
+}
+.replies{
+font-weight:bold;
+}
+.reply {
+margin: 5px 0px 5px 0px; 
+padding: 5px 5px 2px 5px;
+background:#c6ecd7;
+border-radius:10px;
+overflow:auto;
+height:auto;
+max-height:130px;
+}
+.replyText{
+background:white;
+margin:5px;
+text-align:left;
+padding:5px;
+border-radius:10px 10px 10px 10px;
+min-height:40px;
+height:auto;
+}
+/*__________________________________________________________________________*/
+
+/*___________________________ start your own thread___________________________ */
+#submitNewThread {
+background:rgba(254, 215, 176,0.3);
+box-shadow: 0px 0px 40px #febf81;
+border-radius:20px 20px 20px 20px;
+max-width:80%;
+width:auto;
+margin:auto;
+}
+.title{
+padding:10px;
+border-radius:20px 20px 0px 0px;
+background:white;
+box-shadow: 0px 0px 10px white;
+font-size:26px;
+
+}
+#submitNewThread textarea{
+min-width:70%;
+max-width:80%;
+width:auto;
+height:100px;
+border-radius:20px 20px 20px 20px;
+box-shadow: 0px 0px 4px #e37302;
+padding:10px;
+outline:none;
+}
+#submitNewThread textarea:focus{
+box-shadow: 0px 0px 20px #e37302;
+}
+#submitNewThread input[type="text"]{
+min-width:50%;
+max-width:100px;
+width:auto;
+}
+.passToDell{
+margin:10px;
+border-radius:15px;
+border-style:solid;
+border-color:white;
+box-shadow: 0px 0px 4px #e37302;
+padding:3px;
+outline:none;
+}
+.passToDell:focus{
+box-shadow: 0px 0px 20px #e37302;
+}
+.sbmtBtn{
+margin:10px;
+border-radius:15px;
+padding:10px;
+border-style:none;
+box-shadow: 0px 0px 4px #e37302;
+outline:none;
+background:rgba(0,0,0,0.1);
+}
+.sbmtBtn:hover{
+box-shadow: 0px 0px 20px #e37302;
+background:white;
+}
+/* ______________________________________________________________ */
+@media screen and (max-width:500px){
+.thread {
+background:rgba(254, 215, 176,0.3);
+box-shadow: 0px 0px 10px #febf81;
+padding: 0px 5px 5px 5px;
+margin-bottom: 5px;
+width:220px;
+display:inline-block;
+margin:5px;
+height:auto;
+vertical-align:top;
+}
+.threadTitle{
+overflow:auto;
+height:auto;
+max-height:140px;
+margin:0px -5px 5px -5px;
+background:rgba(255,255,255,0.9);
+padding:5px;
+font-size:20px;
+border-radius:10px;
+}
+}
+
+
+
