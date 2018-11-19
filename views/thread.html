@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link rel="icon" href="https://i.postimg.cc/CLrMwKys/10-512.png" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/threadCSS.css">
+  </head>
+  <body>
+    <header>
+    </header>
+    <div id="menu">
+
+    </div>
+    <br>
+    
+    <div id="boardDisplay"></div>
+    
+    <hr style="margin:30px;"/>
+        <footer> Made by <a href="https://twitter.com/Victor01684891" target="_blank">Victor Cojocaru </a> with 🕗 and 🍕 </footer>    
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        var currentURL = window.location.pathname.slice(3);
+        currentURL = currentURL.split('/');
+        var url = "/api/replies/"+currentURL[0];
+        $.ajax({
+          type: "GET",
+          url: url,
+          data:{thread_id: currentURL[1]},
+          success: function(ele)
+          {
+            var boardThreads= [];
+            //
+            // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
+            // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
+            //
+              //console.log(ele);
+              var thread = ['<div>'];
+              thread.push('<div class="main">')
+              thread.push('<p class="nameAndDate"> <strong style="color:green;">Anonymous</strong> '+new Date(ele.created_on).toDateString()+" - "+new Date(ele.created_on).toLocaleTimeString()+'</p>');  
+              thread.push('<form id="reportThread" class="rep-remThread"><input type="hidden" name="report_id" value="'+ele._id+'"><input type="submit" value="Report" class="repReply"></form>');
+              thread.push('<form id="deleteThread" class="rep-remThread"><input type="hidden" value="'+ele._id+'" name="thread_id"  required=""><input type="text" placeholder="password to delete thread" name="delete_password" autocomplete="off" required="" class="dellPassInput"><input type="submit" value="Delete" class="remReply"></form>');  
+              thread.push('<h3 class="threadInitText">'+ele.text+'</h3>');
+              thread.push('</div>');
+              thread.push('<div class="newReply">')
+              thread.push('<form action="/api/replies/'+currentURL[0]+'/" method="post" id="newReply">');
+              thread.push('<input type="hidden" name="thread_id" value="'+ele._id+'">');
+              thread.push('<textarea rows="5" cols="80" type="text" placeholder="Quick reply..." name="text" required=""></textarea><br>');
+              thread.push('<input type="text" placeholder="password to delete your reply" name="delete_password" autocomplete="off" required=""><input style="margin-left: 5px" type="submit" value="Submit"></form></div>');
+              thread.push('<div class="thread">')
+              thread.push('<div class="replies">');
+              ele.replies.forEach(function(rep) {
+                thread.push('<div class="reply">')
+                thread.push('<p class="nameAndDate"> <strong style="color:green;">Anonymous</strong>  </p><form id="reportReply" ><input type="hidden"  name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><input type="submit" value="Report" class="repReply" ></form>');
+                thread.push('<p class="nameAndDate">'+new Date(rep.created_on).toDateString()+" - "+new Date(rep.created_on).toLocaleTimeString()+'</p>');
+                thread.push('<form id="deleteReply" ><input type="hidden" value="'+ele._id+'" name="thread_id"  required=""><input type="hidden" value="'+rep._id+'" name="reply_id"  required=""><input type="text" placeholder="delete reply password" name="delete_password" autocomplete="off" required="" class="dellPassInput"><input type="submit" value="Delete" class="remReply"></form><br/>');
+                // thread.push('<p id="poper" style="color:red;background:white;border:1px solid black;">Delete Successful</p>')
+                thread.push('<p class="replyText">'+rep.text+'</p>');
+                thread.push('</div>')
+              });
+              thread.push('</div></div></div>')
+              boardThreads.push(thread.join(''));
+            $('#boardDisplay').html(boardThreads.join(''));
+          }
+        });
+        
+        $('#newThread').submit(function(){
+          $(this).attr('action', "/api/threads/" + currentBoard);
+        });
+        $('#boardDisplay').on('submit','#reportThread', function(e) {
+          var url = "/api/threads/"+currentURL[0];
+          $.ajax({
+            type: "PUT",
+            url: url,
+            data: $(this).serialize(),
+            success: function(data) { alert(data) }
+          });
+          e.preventDefault();
+        });
+        $('#boardDisplay').on('submit','#reportReply', function(e) {
+          var url = "/api/replies/"+currentURL[0];
+          $.ajax({
+            type: "PUT",
+            url: url,
+            data: $(this).serialize(),
+            success: function(data) { alert(data) }
+          });
+          e.preventDefault();
+        });
+        $('#boardDisplay').on('submit','#deleteThread', function(e) {
+          var url = "/api/threads/"+currentURL[0];
+          $.ajax({
+            type: "DELETE",
+            url: url,
+            data: $(this).serialize(),
+            success: function(data) { alert(data) }
+          });
+          e.preventDefault();
+        });        
+        $('#boardDisplay').on('submit','#deleteReply', function(e) {
+           console.log($(this).serialize());
+          var url = "/api/replies/"+currentURL[0];
+          $.ajax({
+            type: "DELETE",
+            url: url,
+            data: $(this).serialize(),
+            success: function(data) { alert(data) }
+          });
+          e.preventDefault();
+        });     
+        let boardLink = window.location.pathname.slice(0,window.location.pathname.length-24)     
+        $("#menu").html(`<a href="https://surf-code.glitch.me/" ><div class="menuLink">Back to Boards</div></a> <a href="${boardLink}" ><div class="menuLink">Back to Threads</div></a>`);
+      });
+   </script>
+  </body>
+</html>

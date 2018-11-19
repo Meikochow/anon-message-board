@@ -1,0 +1,74 @@
+body {
+padding: 10px;
+margin:5px;
+text-align:center;
+background:rgba(51, 153, 255,0.07);
+min-width:200px;
+}
+a{
+text-decoration:none;
+}
+/* ________________________________________boards___________________________________ */
+.board{
+box-shadow:0px 0px 10px mediumSeaGreen;
+margin:5px;
+text-align:center;
+width:150px;
+display: flex;
+height:150px;
+padding-top:0px;
+font-size:22px;
+color:black;
+cursor:pointer;
+background:rgba(51, 153, 255,0.2);
+border-radius:10px;
+overflow:auto;
+word-wrap:break-word;
+font-family:"Arial"; 
+text-decoration:none;
+} 
+.board:hover{
+box-shadow:0px 0px 20px mediumSeaGreen;
+background:white;
+}
+.boardText{
+word-wrap:break-word;
+width:130px;
+margin:auto;
+text-decoration:none;
+font-size:18px;
+padding:15px 0px 15px 0px;
+border-radius:10px;
+font-family:"Allerta Stencil";
+}
+#newBoard{
+border-radius:10px;
+box-shadow: 0px 0px 10px rgb(51, 153, 255);
+max-width:700px;
+width:auto;
+margin:20px auto 10px auto;
+padding:25px 0px 20px 0px;
+}
+#board1, #textarea1, #delPass1{
+border:none;
+box-shadow: 0px 0px 10px rgb(51, 153, 255);
+border-radius:5px;
+margin:5px auto 10px auto;
+padding:5px;
+outline:none;
+min-width:50%;
+max-width:100px;
+width:auto;
+}
+#board1:focus,#textarea1:focus, #delPass1:focus{
+box-shadow: 0px 0px 30px mediumSeaGreen;
+}
+.sbmt1{
+padding:10px 20px 10px 20px;
+border:none;
+border-radius:5px;
+background:#c6ecd7;
+}
+.sbmt1:hover{
+box-shadow: 0px 0px 30px mediumSeaGreen;
+}
